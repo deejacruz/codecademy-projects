@@ -1,0 +1,47 @@
+# if customer wants ground shipping
+def ground_ship(weight):
+  if weight <= 2.0:
+    cost = weight*1.50+20.00
+    return cost
+  elif weight <= 6.0:
+    cost = weight*3.00+20.00
+    return cost
+  elif weight <= 10.0:
+    cost = weight*4.00+20.00
+    return cost
+  else:
+    cost = weight*4.75+20.00
+    return cost
+# math check
+print ("This package will cost ${0:.2f} to ship via ground shipping.".format(ground_ship(8.4)))
+# if customer wants premium ground shipping
+premium_ground_ship = 125.00
+# if customer wants drone shipping
+def drone_ship(weight):
+  if weight <= 2.0:
+    cost = weight*4.50
+    return cost
+  elif weight <= 6.0:
+    cost = weight*9.00
+    return cost
+  elif weight <= 10.0:
+    cost = weight*12.00
+    return cost
+  else:
+    cost = weight*14.25
+    return cost
+# math check
+print("This package will cost ${0:.2f} to ship via drone shipping.".format(drone_ship(1.5)))
+# if customer wants cheapest option
+def best_ship(weight):
+  a = ground_ship(weight)
+  b = premium_ground_ship
+  c = drone_ship(weight)
+  if (a < b) and (a < c):
+    return "The cheapest shipping method is ground shipping. It will cost ${:.2f} to ship this package.".format(a)
+  elif (b < a) and (b < c):
+    return "The cheapest shipping method is premium ground shipping. It will cost ${:.2f} to ship this package.".format(b)
+  else:
+    return "The cheapest shipping method is drone shipping. It will cost ${:.2f} to ship this package.".format(c)
+# mic check two one two 
+print(best_ship(41.5))
